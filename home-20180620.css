@@ -1,0 +1,177 @@
+/*清除原有边距样式*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*设定主体字体颜色样式*/
+body {
+    font-family: "微软雅黑", sans-serif;
+    color: #14191e;
+}
+
+/*清除列表项样式*/
+ul {
+    list-style: none;
+}
+
+/*设定main框样式，跟背景图片一样的大小，居中显示，溢出超出的范围隐藏起来*/
+.main {
+    width: 1200px;
+    height: 460px;
+    margin: 30px auto 0 auto;
+    overflow: hidden; /*1张图片的空间与main一样大，3张列出来就大了，将溢出部分隐藏*/
+    position: relative;
+}
+
+/*设定图片轮播banner样式,宽高占据main整个框，*/
+.banner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /*1张图片的空间与main一样大，3张列出来就大了，将溢出部分隐藏*/
+    position: relative; /*父元素banner也要设置上相应的  相对定位*/
+}
+
+/*设定背景图片样式,宽高占据banner整个框，背景图片还要设置是否平铺！！！
+要设置图片上下滑动，左右滑动 ，隐藏等功能，就要设置图片的绝对定位
+①如果是上下滑动就不要设置定位，因为现在<a>标签的3图片就是标准流的上下结构的
+②如果是左右滑动就  要设置定位，       把<a>标签的3张图片在一行上，才可以左右滑动
+③如果是 隐藏/出现  要设置定位，       把<a>标签的3张图片放在banner框的同一个地方,绝对定位跳出标准流*/
+.banner-background {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    position: absolute; /*第3种方式轮播，设置绝对定位，它的父元素banner也要设置上相应的  相对定位！！*/
+    left: 0; /*也就是说我们设置的决定定位是相对于它的父元素banner来说的，不需要对于整个body来说*/
+    top: 50%; /* 定位之前我们能看到的是第一章图片，绝对定位之后，根据先后覆盖原理，我们知道现在可以看到的是第三张图*/
+    margin-top: -230px;
+    display: none; /*先将所有图片都隐藏，后面用js来显示出来*/
+}
+
+/*设置后期js动态设计的样式，将图片显示出来*/
+.background-active {
+    display: block;
+}
+
+/*分别设定背景图片*/
+.background1 {
+    background-image: url("img/bg1.jpg");
+}
+
+.background2 {
+    background-image: url("img/bg2.jpg");
+}
+
+.background3 {
+    background-image: url("img/bg3.jpg");
+}
+
+/*设置轮播按钮的样式,它需要出现在背景图上的话，那么它也是脱离标准流的，做个决定的定位，它的父元素main要做相对定位*/
+.button {
+    width: 40px;
+    height: 80px;
+    position: absolute;
+    left: 244px; /*留出导航的位置*/
+    top: 50%;
+    margin-top: -40px; /*高的一半负值，这样就可以做到在main中居中*/
+    background: url("img/arrow.png") no-repeat center center; /*这个css文件与这张图片的相对位置路径,没有重复，水平垂直都居中*/
+}
+
+/*当鼠标滑过button的时候发生什么样式改变*/
+a.button:hover {
+    background-color: #333333; /* 这里只能设置color，不能设置背景，会把前面设置的按钮覆盖掉的！*/
+    opacity: 0.5;
+    /* 该属性支持firefox,Chrome, Safari和 Opera,为了兼容问题，还需要为其他浏览器设置一下这个透明度
+                       值越小越透明*/
+    filter: alpha(opacity=50); /*这个是为IE6设的，可取值在0-100，其它三个0到1*/
+    -moz-opacity: 0.5; /*这个是为了支持一些老版本的Mozilla浏览器。*/
+    -khtml-opacity: 0.5; /*这个为了支持一些老版本的Safari浏览器*/
+}
+
+/*旋转左边图片得到正确的样式*/
+.pre {
+    transform: rotateZ(180deg);
+}
+
+/*把右边的按钮放到右边，*/
+.next {
+    right: 0; /*直接这样设置为0是不会生效的，不会出现在右边，因为button样式给了一个left为0px了，当left与right同时存在的时候，它是先看left的属性值，而不是right*/
+    left: auto; /*在这里就需要再写一次left属性值，让它成为auto，再来设置right值，right就可以生效了，*/
+}
+
+/*设置轮播圆圈的样式,它需要出现在背景图上的话，那么它也是脱离标准流的，做个决定的定位，它的父元素main要做相对定位*/
+.dots {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    text-align: right;
+}
+
+/*把span做成圆点，都是文本框的，通过设置圆角半径做成圆*/
+.dots span {
+    display: inline-block; /*这里不懂，为什么要这样才能显示呢？？？、span是不是本来就是内联么？？？？*/
+    /* 设置了inline-block属性的元素既拥有了block元素可以设置width和height的特性，又保持了inline元素不换行的特性。
+    span内联元素是本来是没有宽高的，现在要何止宽高，就要把它变成块级元素，但是又还要保留内联元素的行样式，所以就inline-block了*/
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.4%;
+    filter: alpha(opacity=40); /*这个是为IE6设的，可取值在0-100，其它三个0到1*/
+    -moz-opacity: 0.4; /*这个是为了支持一些老版本的Mozilla浏览器。*/
+    -khtml-opacity: 0.4; /*这个为了支持一些老版本的Safari浏览器*/
+    box-shadow: 0 0 0 2px purple inset; /*设置盒子的阴影，xy方向的偏离都是0，阴影的距离也是0模糊程度是2px，阴影的颜色为白色，设置为内置阴影inset*/
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/*设置圆圈被选中的颜色，
+背景变成白色，外圈变成灰色*/
+span.active { /* 为什么写成span.active才可以？？？直接是.active为什么不行？？？？？？？？？？？？？？？？？？？？？？？？？？？*/
+    background-color: purple;
+    opacity: 0.4%;
+    filter: alpha(opacity=40); /*这个是为IE6设的，可取值在0-100，其它三个0到1*/
+    -moz-opacity: 0.4; /*这个是为了支持一些老版本的Mozilla浏览器。*/
+    -khtml-opacity: 0.4; /*这个为了支持一些老版本的Safari浏览器*/
+    box-shadow: 0 0 0 2px white inset; /*设置盒子的阴影，xy方向的偏离都是0，阴影的距离也是0模糊程度是2px，阴影的颜色为白色，设置为内置阴影inset*/
+
+}
+
+
+
+
+.menu-box{
+    width: 244px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(7, 17, 27, 0.4);
+    opacity: 0.4;
+    filter: alpha(opacity=40); /*这个是为IE6设的，可取值在0-100，其它三个0到1*/
+    -moz-opacity: 0.4; /*这个是为了支持一些老版本的Mozilla浏览器。*/
+    -khtml-opacity: 0.4; /*这个为了支持一些老版本的Safari浏览器*/
+}
+.menu-content {
+    width: 244px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    padding-top: 6px;
+}
+.nav-item {
+    height: 64px;
+    line-height: 64px;
+    font-size: 16px;
+    padding: 0 24px;
+}
+
+.nav-content i {
+    position: absolute;
+    left: auto;
+    right: 0;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" type="text/css" href="home-20180620.css"/>
+<!--<script src="home-20180620.js"></script>    放在head里面的话怎么用？？？？-->
+<!--<script src="https://at.alicdn.com/t/font_699026_rr92i5durfl.js"></script>-->
+<body>
+
+<!--<div class="header"></div>-->
+<div class="main" id="main">
+    <!--导航菜单-->
+    <!--导航菜单底色框-->
+    <div class="menu-box"></div>
+    <!--导航菜单内容
+        因为底色框设置了透明度，透明度会继承而且去不掉，它会导致填写的内容，也就是文字也变得透明，所以不再munu-box里面做文字的div-->
+    <div class="menu-content">
+        <a href="#">
+            <div class="menu-item">
+                <span class="nav-item">手机、配件</span><i>&#xe665;</i>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <span class="nav-item">电脑</span><i>&#xe665;</i>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <span class="nav-item">家用电器</span><i>&#xe665;</i>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <span class="nav-item">家具</span><i>&#xe665;</i>
+            </div>
+        </a>
+    </div>
+    <!--图片轮播-->
+    <div class="banner" id="banner">
+        <!--链接图片编辑，一般还是这样写的好，如果图片是死的还可以简单的用背景图来设置就ok,先学习用背景图片简单的方式来做-->
+        <a href="#">
+            <div class="banner-background background1 background-active"></div>
+        </a>
+        <a href="#">
+            <div class="banner-background background2"></div>
+        </a>
+        <a href="#">
+            <div class="banner-background background3"></div>
+        </a>
+        <!--    下面是结构图的方式来做
+         <a href="#"><img class="bannerImg" id="bannerImg1" src="../img/bg1.jpg"/></a>
+                <div class="circlesvg" id="circlesvg">
+                    <svg class="my-icon" aria-hidden="true">
+                        <use xlink:href="#icon-lunbodian"></use>
+                    </svg>
+                    <svg class="my-icon" aria-hidden="true">
+                        <use xlink:href="#icon-lunbodian"></use>
+                    </svg>
+                    <svg class="my-icon" aria-hidden="true">
+                        <use xlink:href="#icon-lunbodian"></use>
+                    </svg>
+                </div>
+                <a href="#"><img class="bannerImg" id="bannerImg2" src="../static/img/手机轮播图.jpg"/></a>
+                <a href="#"><img class="bannerImg" id="bannerImg3" src="../static/img/花轮播图.jpg"/></a>
+            </div>-->
+    </div>
+    <!--轮播按钮，javascript:void(0)表示这个a标签不做任何的超链接,图片还是用背景图的方式
+    这里使用a标签有用，可以设置当鼠标滑过的时候改变背景颜色-->
+    <div>
+        <a href="javascript:void(0)" class="button  pre" id="pre"></a>
+        <a href="javascript:void(0)" class="button  next" id="next"></a>
+    </div>
+    <!--轮播圆圈， -->
+    <div class="dots" id="dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<script src="home-20180620.js"></script>
+</body>
+</html>
