@@ -1,18 +1,24 @@
-/*清除原有边距样式*/
+/*清除原有边距样式,*设定主体字体颜色样式,清除列表项样式,清除链接下划线，设置未访问与已访问链接文字颜色*/
 * {
     padding: 0;
     margin: 0;
 }
 
-/*设定主体字体颜色样式*/
 body {
     font-family: "微软雅黑", sans-serif;
     color: #14191e;
 }
 
-/*清除列表项样式*/
 ul {
     list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: #5e5e5e;
 }
 
 /*设定main框样式，跟背景图片一样的大小，居中显示，溢出超出的范围隐藏起来*/
@@ -107,6 +113,8 @@ a.button:hover {
     text-align: right;
 }
 
+
+
 /*把span做成圆点，都是文本框的，通过设置圆角半径做成圆*/
 .dots span {
     display: inline-block; /*这里不懂，为什么要这样才能显示呢？？？、span是不是本来就是内联么？？？？*/
@@ -116,11 +124,11 @@ a.button:hover {
     height: 12px;
     line-height: 12px;
     border-radius: 50%;
-    background: white;
+    background-color: white;
     opacity: 0.4%;
-    filter: alpha(opacity=40); /*这个是为IE6设的，可取值在0-100，其它三个0到1*/
-    -moz-opacity: 0.4; /*这个是为了支持一些老版本的Mozilla浏览器。*/
-    -khtml-opacity: 0.4; /*这个为了支持一些老版本的Safari浏览器*/
+  /*  filter: alpha(opacity=40); !*这个是为IE6设的，可取值在0-100，其它三个0到1*!
+    -moz-opacity: 0.4; !*这个是为了支持一些老版本的Mozilla浏览器。*!
+    -khtml-opacity: 0.4; !*这个为了支持一些老版本的Safari浏览器*!*/
     box-shadow: 0 0 0 2px purple inset; /*设置盒子的阴影，xy方向的偏离都是0，阴影的距离也是0模糊程度是2px，阴影的颜色为白色，设置为内置阴影inset*/
     margin-left: 10px;
     cursor: pointer;
@@ -128,20 +136,20 @@ a.button:hover {
 
 /*设置圆圈被选中的颜色，
 背景变成白色，外圈变成灰色*/
-span.active { /* 为什么写成span.active才可以？？？直接是.active为什么不行？？？？？？？？？？？？？？？？？？？？？？？？？？？*/
+.dots span.active { /* 为什么写成span.active才可以？？？直接是.active为什么不行？？？？？？？？？？？？？？？？？？？？？？？？？？？*/
+    /*.dots span.actived 的写法要注意！！！！这个问题严重，不知道怎么看，span后面不要有空格，否则不对！！！，为啥这样来取选择器？？？看不懂*/
     background-color: purple;
     opacity: 0.4%;
-    filter: alpha(opacity=40); /*这个是为IE6设的，可取值在0-100，其它三个0到1*/
-    -moz-opacity: 0.4; /*这个是为了支持一些老版本的Mozilla浏览器。*/
-    -khtml-opacity: 0.4; /*这个为了支持一些老版本的Safari浏览器*/
+/*    filter: alpha(opacity=40); !*这个是为IE6设的，可取值在0-100，其它三个0到1*!
+    -moz-opacity: 0.4; !*这个是为了支持一些老版本的Mozilla浏览器。*!
+    -khtml-opacity: 0.4; !*这个为了支持一些老版本的Safari浏览器*!*/
     box-shadow: 0 0 0 2px white inset; /*设置盒子的阴影，xy方向的偏离都是0，阴影的距离也是0模糊程度是2px，阴影的颜色为白色，设置为内置阴影inset*/
-
 }
 
 
 
-
-.menu-box{
+/*主菜单底色框*/
+.menu-box {
     width: 244px;
     height: 100%;
     position: absolute;
@@ -154,6 +162,8 @@ span.active { /* 为什么写成span.active才可以？？？直接是.active为
     -moz-opacity: 0.4; /*这个是为了支持一些老版本的Mozilla浏览器。*/
     -khtml-opacity: 0.4; /*这个为了支持一些老版本的Safari浏览器*/
 }
+
+/*主菜单内容，因为底色框有透明度，内容不在底色框的div内，而是并列*/
 .menu-content {
     width: 244px;
     height: 100%;
@@ -163,15 +173,103 @@ span.active { /* 为什么写成span.active才可以？？？直接是.active为
     z-index: 2;
     padding-top: 6px;
 }
-.nav-item {
+
+.menu-item {
     height: 64px;
-    line-height: 64px;
+    line-height: 66px;
     font-size: 16px;
-    padding: 0 24px;
+    /* padding: 6px 24px; */
+    margin: 20px 0px 20px 0px ;
+    padding-left: 24px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.nav-content i {
+/* 给menu-item下的a链接文字设置颜色，但是为什么我的字颜色不变？？？这个到底哪里错了？？？？？，是content不是item */
+.menu-content a:link, .menu-content a:visited {
+    color: white;
+
+}
+
+.menu-item i {
     position: absolute;
-    left: auto;
-    right: 0;
+    right: 32px;
+    top: 50%;
+    margin-top: -26px;
+    font-size: 12px;
+}
+
+.my-icon {
+    width: 1.8em;
+    height: 1.8em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/*子菜单底色框，这里是底图*/
+.sub-menu-box {
+    width: 732px;
+    height: 100%;
+    margin: 6px 0 10px 0;
+    position: absolute;
+    left: 244px;
+    top: 0;
+    z-index: 3;
+    background: url("img/fe.png");
+    opacity: 0.85;
+    filter: alpha(opacity=85); /*这个是为IE6设的，可取值在0-100，其它三个0到1*/
+    -moz-opacity: 0.85; /*这个是为了支持一些老版本的Mozilla浏览器。*/
+    -khtml-opacity: 0.85; /*这个为了支持一些老版本的Safari浏览器*/
+}
+
+/*子菜单内容，因为底色框有透明度，内容不在底色框的div内，而是并列*/
+.sub-menu-content {
+    width: 732px;
+    height: 100%;
+    position: absolute;
+    left: 244px;
+    top: 0;
+    z-index: 4;
+    padding-top: 24px;
+}
+
+/*隐藏用来做js动态效果.sub-menu-box与.sub-menu-content的显示与隐藏*/
+.hide{
+    display:none;
+}
+
+.sub-menu-item {
+    height: 460px;
+    font-size: 16px;
+    /* padding: 6px 24px; */
+    margin: 20px 24px;
+    position: relative;
+}
+
+.sub-menu-item-title {
+    color: #f01414;
+    font-size: 20px;
+    line-height: 16px;
+    margin-top: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.sub-menu-item-row {
+    margin-bottom: 25px;
+}
+pre{
+    display: inline;
+}
+.bold{
+    font-weight:700;
+}
+
+.mr10{
+    margin-right:10px;
+}
+
+.ml10{
+    margin-left:10px;
 }

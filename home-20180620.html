@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>html-css-js-轮播图-主菜单</title>
 </head>
 <link rel="stylesheet" type="text/css" href="home-20180620.css"/>
 <!--<script src="home-20180620.js"></script>    放在head里面的话怎么用？？？？-->
@@ -12,31 +12,271 @@
 <!--<div class="header"></div>-->
 <div class="main" id="main">
     <!--导航菜单-->
-    <!--导航菜单底色框-->
+    <!--导航主菜单底色框-->
     <div class="menu-box"></div>
-    <!--导航菜单内容
-        因为底色框设置了透明度，透明度会继承而且去不掉，它会导致填写的内容，也就是文字也变得透明，所以不再munu-box里面做文字的div-->
-    <div class="menu-content">
+    <!--导航主菜单内容-->
+    <!--因为底色框设置了透明度，透明度会继承而且去不掉，它会导致填写的内容，也就是文字也变得透明，所以不再munu-box里面做文字的div-->
+    <div class="menu-content" id="menu-content">
+        <a href="#">
+            <div class="menu-item" id="menu-item">
+                <span>手机、配件</span>
+                <i>
+                    <svg class="my-icon" aria-hidden="true">
+                        <use xlink:href="#icon-iconfontplatformentrance"></use>
+                    </svg>
+                </i>
+            </div>
+        </a>
         <a href="#">
             <div class="menu-item">
-                <span class="nav-item">手机、配件</span><i>&#xe665;</i>
+                <span>电脑</span>
+                <i>
+                    <svg class="my-icon" aria-hidden="true">
+                        <use xlink:href="#icon-iconfontplatformentrance"></use>
+                    </svg>
+                </i>
             </div>
         </a>
         <a href="#">
-            <div>
-                <span class="nav-item">电脑</span><i>&#xe665;</i>
+            <div class="menu-item">
+                <span>家用电器</span>
+                <i>
+                    <svg class="my-icon" aria-hidden="true">
+                        <use xlink:href="#icon-iconfontplatformentrance"></use>
+                    </svg>
+                </i>
             </div>
         </a>
         <a href="#">
-            <div>
-                <span class="nav-item">家用电器</span><i>&#xe665;</i>
+            <div class="menu-item">
+                <span>家具</span>
+                <i>
+                    <svg class="my-icon" aria-hidden="true">
+                        <use xlink:href="#icon-iconfontplatformentrance"></use>
+                    </svg>
+                </i>
             </div>
         </a>
-        <a href="#">
-            <div>
-                <span class="nav-item">家具</span><i>&#xe665;</i>
+    </div>
+    <!--导航子菜单底色框-->
+    <div class="sub-menu-box hide" id="sub-menu-box"></div>
+    <!--导航子菜单内容-->
+    <!--因为底色框设置了透明度，透明度会继承而且去不掉，它会导致填写的内容，也就是文字也变得透明，所以不再munu-box里面做文字的div-->
+    <div class="sub-menu-content hide " id="sub-menu-content">
+        <!--手机、配件子菜单内容-->
+        <div class="sub-menu-item ">
+            <div class="sub-menu-item-title">手机、配件</div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>手机通讯：</pre></span>
+                    <a href="">手机</a>
+                    <span class="ml10 mr10">/</span>
+                    <a href="">手机维修</a>
+                    <span class="ml10 mr10">/</span>
+                    <a href="">以旧换新</a>
             </div>
-        </a>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>手机配件：</pre></span>
+                <a href="">手机壳</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">手机存储卡</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">数据线</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">充电器</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">电池</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>运 营 商：</pre></span>
+                <a href="">中国联通</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">中国移动</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">中国电信</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>智能设备：</pre></span>
+                <a href="">智能手环</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">智能家居</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">智能手表</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">其他配件</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>娱    乐：</pre></span>
+                <a href="">耳机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">音响</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">收音机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">麦克风</a>
+            </div>
+        </div>
+        <!--电脑 子菜单内容-->
+        <div class="sub-menu-item">
+            <div class="sub-menu-item-title">电脑</div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>电    脑：</pre></span>
+                <a href="">笔记本</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">平板</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">一体机</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>电脑配件：</pre></span>
+                <a href="">显示器</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">CPU</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">主板</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">硬盘</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">电源</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">显卡</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">其他配件</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>游戏设备：</pre></span>
+                <a href="">游戏机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">耳机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">游戏软件</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>网络产品：</pre></span>
+                <a href="">路由器</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">网络机顶盒</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">交换机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">存储卡</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">网卡</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>外部产品：</pre></span>
+                <a href="">鼠标</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">键盘</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">U盘</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">移动硬盘</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">鼠标垫</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">电脑清洁</a>
+            </div>
+        </div>
+        <!--家用电器 子菜单内容-->
+        <div class="sub-menu-item">
+            <div class="sub-menu-item-title">家用电器</div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>电    视：</pre></span>
+                <a href="">国产品牌</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">韩国品牌</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">欧美品牌</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>空    调：</pre></span>
+                <a href="">显示器</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">柜式</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">中央</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">壁挂式</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>冰    箱：</pre></span>
+                <a href="">多门</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">对开门</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">三门</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">双门</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>洗 衣 机：</pre></span>
+                <a href="">滚筒式洗衣机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">迷你洗衣机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">洗烘一体机</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>厨房电器：</pre></span>
+                <a href="">油烟机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">洗碗机</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">燃气灶</a>
+            </div>
+        </div>
+        <!--家居 子菜单内容-->
+        <div class="sub-menu-item">
+            <div class="sub-menu-item-title">家居</div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>家    纺：</pre></span>
+                <a href="">被子</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">枕头</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">四件套</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">床垫</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>灯    具：</pre></span>
+                <a href="">台灯</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">顶灯</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">节能灯</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">应急灯</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>厨    具：</pre></span>
+                <a href="">烹饪锅具</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">餐具</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">菜板刀具</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>家    装</pre></span>
+                <a href="">地毯</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">沙发垫套</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">装饰字画</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">照片墙</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">窗帘</a>
+            </div>
+            <div class="sub-menu-item-row">
+                <span class="bold mr10"><pre>生活日用：</pre></span>
+                <a href="">收纳用品</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">浴室用品</a>
+                <span class="ml10 mr10">/</span>
+                <a href="">雨伞雨衣</a>
+            </div>
+        </div>
     </div>
     <!--图片轮播-->
     <div class="banner" id="banner">
@@ -82,5 +322,6 @@
 </div>
 
 <script src="home-20180620.js"></script>
+<script src="http://at.alicdn.com/t/font_715239_dntay8vsdh.js"></script>
 </body>
 </html>
