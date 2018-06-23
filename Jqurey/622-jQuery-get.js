@@ -79,59 +79,77 @@
 
 /*
   jqurey选择器
-  可以获取到0个，1个，多个元素，
-  他们都会被封装一个类数组的对象中。所以我们把他们叫做，
-  类数组，jqurey对象，jqurey集合，jqurey对象集合，jqurey元素集合，  是一个东西
+  可以获取到0个，1个，多个元素，他们都会被封装一个类数组的对象中。所以我们把他们叫做，类数组，
+  jqurey对象，jqurey集合，jqurey对象集合，jqurey元素集合，  是一个东西
 */
-
-
-/*操作jqurey对象
-  检查数量
-  父子邻居关系
-  过滤数组的集合
-  遍历
-*/
-
-
-
-
-
-
 
 
 
 /*
 1、DOM对象与jqurey对象的区别
+    https://www.cnblogs.com/yellowapplemylove/archive/2011/04/19/2021583.html       
+    
+    ①.jQuery对象和DOM对象
+        DOM对象，即是我们用传统的方法(js)获得的对象，var domObj = document.getElementById("id");
+        jQuery对象即是用jQuery类库的选择器获得的对象;  var $obj = $("#id");
+        jQuery对象：是通过jQuery包装DOM对象后产生的对象，它是jQuery独有的。
 
-    DOM对象就是网页中的标签元素。
+        获取id为foo的元素内的html代码。
+            js方法：document.getElementById("foo").innerHTML;
+        jqurey方法：$("#foo").html()
+        注意：在jQuery对象中无法使用DOM对象的任何方法。
+        例如$("#id").innerHTML 和$("#id").checked之类的写法都是错误的
+        可以用$("#id").html()和$("#id").attr ("checked")之类的 jQuery方法来代替。
+        同样，DOM对象也不能使用jQuery方法。学习jQuery开始就应当树立正确的观念，
+        分清jQuery对象和DOM对象之间的区别，之后学习 jQuery就会轻松很多的。
 
-    检测它是jqurey    object:if (对象.jqurey)
-    检测它是DOM       object:if (对象.nodeType)
+    ②判断是DOM对象还是jqurey对象
+        jqurey对象使用 .jqurey  可以获取版本号
+        DOM对象使用.nodeType    可以获得节点，
+        检测它是jqurey    object:if (对象.jqurey)
+        检测它是DOM       object:if (对象.nodeType)
 
-    DOM对象与jqurey对象之间的转换，
-    var jqureyObject=$("domobject");
-    var domObject=jqureyObject.get(index);
-    var domObject=jqureyObject[index];
-    */
+    ③jQuery对象和DOM对象的互相转换。 DOM对象与jqurey对象之间的转换。
+        jquery对象和dom对象是不一样的！比如jquery对象不能使用dom的方法，dom对象不能使用jquery方法，
+        那假如我 jquery没有封装我要的方法，那能怎么办呢？这时我们可以将jquer对象转换成dom对象，
+        然后使用js去操作DOM对象来实现我们的效果。
+        jquery提供了两种方法将一个jquery对象转换成一个dom对象，即[index]和get(index)。
+        可能有人会觉得奇怪，怎么是用下标呢，没错，jquery对象就是一个数组对象.
+        
+        var jqureyObject=$("domobject");  //获取一个jqurey对象。下面来转化为DOM对象
+        方法1：使用方法get（index）：    var domObject=jqureyObject.get(index);
+        方法2：使用类数组取索引的办法：   var domObject=jqureyObject[index];
+        var $cr=$("#cr"); //jquery对象
+        var cr = $cr[0]; //dom对象 也可写成 var cr=$cr.get(0);
+        alert(cr.checked); //检测这个checkbox是否给选中
+
+        dom对象转换成jquery对象。转换后可以任意使用jquery中的方法了.
+        jquery对象提供了一套更加完善的工具用于操作dom
+        对于一个dom对象，只需要用$()把dom对象包装起来，就可以获得一个jquery对象了，方法为$(dom对象);
+        var domObject = document.getElementById("div");
+        var cr=document.getElementById("cr"); //dom对象
+        var $cr = $(cr); //转换成jquery对象
+        */
 
 
-/* jQuery 入口函数:
-        $(document).ready(function(){
-            // 执行代码
-        });
-        或者
-        $(function(){
-            // 执行代码
-        });
+/* jQuery与js的区别
+        jQuery 入口函数:
+                $(document).ready(function(){
+                    // 执行代码
+                });
+                或者
+                $(function(){
+                    // 执行代码
+                });
 
 JavaScript 入口函数:
-        window.onload = function () {
-            // 执行代码
-        }
-jQuery 入口函数与 JavaScript 入口函数的区别：
-jQuery 的入口函数是在 html 所有标签(DOM)都加载之后，就会去执行。
-JavaScript 的 window.onload 事件是等到所有内容，包括外部图片之类的文件加载完后，才会执行。 
-*/
+                window.onload = function () {
+                    // 执行代码
+                }
+    jQuery 入口函数与 JavaScript 入口函数的区别：
+    jQuery 的入口函数是在 html 所有标签(DOM)都加载之后，就会去执行。
+    JavaScript 的 window.onload 事件是等到所有内容，包括外部图片之类的文件加载完后，才会执行。 
+    */
 
 
 /* 下面这代码的开头可以是,完整全程的写法
@@ -196,11 +214,14 @@ $(function () {
         就要提取元素，也就是索引来获取，之后就用方法来操作
         ①对象[index]    返回DOM元素
         ②对象.get(index)返回DOM元素，   index可以是负值，负数从右边开始取
-          对象.get()     返回DOM元素数组    
+          对象.get()     返回DOM元素数组   
+        ⑥对象.toArray() 返回DOM元素的数组，与get()一样，
+
+        上面的方法是用来将jqurey对象转化为DOM对象的，
+        下面的对jqurey的操作都还是返回jqurey对象。
         ③对象.eq(index) 返回jqurey对象， 
         ④对象.first()   返回jqurey对象，
-        ⑤对象.last()    返回jqurey对象，
-        ⑥对象.toArray() 返回DOM元素的数组，与get()一样，
+        ⑤对象.last()    返回jqurey对象，        
         ⑦对象.parent()    返回一级父元素，jQuery对象
         ⑧对象.parents()   返回所有父元素，jqurey对象
         ⑨对象.parentsUntil()返回到某个父元素的所有父元素，jqurey对象
@@ -238,9 +259,9 @@ $(function () {
     console.log(arg1.closest(".span2"));//[] class=box的本身与父级没有.span2的元素
 
     /* 兄弟姐妹，邻居元素查找，找的是与自己同级的
-      ⑭对象.next()
-      ⑮对象.nextAll() 
-      ⑯对象.nextUntil()
+      ⑭对象.next()，  查找下一个的兄弟姐妹，不包括自己
+      ⑮对象.nextAll()  查找所有的的兄弟姐妹，不包括自己
+      ⑯对象.nextUntil() 查找自己到另外一个兄弟姐妹之间的兄弟姐妹，头尾都不包括
       ⑰对象.prev()
       ⑱对象.prevAll() 
       ⑲对象.prevUntil() 
@@ -349,11 +370,4 @@ $(function () {
     ele1.css("color", "yellow");//这样只用li2变成黄色
     var ele2 = ele1.end().addBack();//包括被操作的li1
     ele2.css("color", "yellow");// 这样li1，与li2 变成黄色
-
-
-
-
-
-
-
 })
