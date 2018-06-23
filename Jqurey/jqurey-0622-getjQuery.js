@@ -206,7 +206,7 @@ $(function () {
         ⑨对象.parentsUntil()返回到某个父元素的所有父元素，jqurey对象
         ⑩对象.children()  返回所有一级子元素，jqurey对象
         ⑪对象.contents()  返回所有一级子元素带文本节点，的jqurey对象
-        ⑫对象.find()      ？？？？？？？？？？？？？？？？？？？？？？  
+        ⑫对象.find()      后代元素  
         ⑬对象.closest()   返回它本身或者是逐级向上(父元素)查找到匹配的元素，没有就是空，jqurey对象  
 
      */
@@ -281,14 +281,74 @@ $(function () {
 
     /*  9、获取子集
       ㉕对象.slice(start,end)  返回jQuery集合,    半闭区间
-      ㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿
-       */
+            索引可以是负数，负数从右边开始计算
+     */
     console.log($("li").slice(4, 6));//jQuery.fn.init(2) [li, li, prevObject: jQuery.fn.init(7)]
     console.log($("li").slice());//
     //jQuery.fn.init(7) [li, li, li, li, li, li, li, prevObject: jQuery.fn.init(7)]
     console.log($("li").slice(0));//
     //jQuery.fn.init(7) [li, li, li, li, li, li, li, prevObject: jQuery.fn.init(7)]
 
+
+    /*10、转换元素
+    ㉖对象.map()
+    将jQuery对象转换成另外一个jQuery对象！！！！！！！！！！！！！！！！，
+    它的返回值取决于我们在()使用函数时的回调值.
+    它里面可以返回null||undefined，或者其他任何值，返回null这些空值，是为了忽略这些元素
+     
+    */
+    console.log($("li").map(function (index, domElements) {
+        return this.id; //这个this指的是domElements
+        //jQuery.fn.init(7) ["li1", "li2", "", "", "", "", "", prevObject: jQuery.fn.init(7)]
+
+    }));
+
+
+
+    /* 10、遍历元素 
+    ㉗对象.each()
+    它只是去读取jQuery对象，不会  改变它。
+    它的返回值取决于我们在()使用函数时的回调值.    
+    */
+    console.log($("li").each(function (index, domElements) {
+        //return this.id; //这个this指的是domElements
+        //jQuery.fn.init(7) [li#li1, li#li2, li, li, li, li, li, prevObject: jQuery.fn.init(1)]
+        //this.title=this.innerHTML;//等同于=this.innerText;
+        if (this.id === "li2") {//使用严格的全等
+            //return flase;//相当于for循环中的break；终止遍历了，
+            return true;//相当于for循环中的continue，跳出本次循环，但是还是继续          
+        }
+        this.title = this.id;//等同于=this.innerText;  
+    }));
+
+
+
+    /* 11、其他一些操作元素的方法
+    ㉘ is() ,常用于判断这个元素里面是否存在图片，如果存在的话就对图片的大小尺寸进行定义
+    */
+    console.log($(".box3").children().is("p"));//false
+    console.log($(".box3").children().is("img"));//false
+    console.log($(".box3").children().is("li"));//false
+    console.log($(".box3").children().is("ul"));//true
+    /* ㉙ end(); 一般用于发生错误的时候（破坏性操作），让它返回错误的前一次状态
+    破坏性操作：就是指任何改变，所匹配的jQuery对象的操作。就是把最开始的jQuery对象改变了的一些方法，
+    比如not，filter，find()等等
+    注意：end()使用的前面一定要是一个破坏性的操作，才用end（），没有破坏用了end(),不会有任何变化
+    */
+    console.log($("ul").find(".li4").css("color", "red").end().find(".li6")
+        .css("color", "blue"));//jQuery.fn.init [li.li6, prevObject: jQuery.fn.init(1)]
+    //如果没有end()那么，li6不会变成蓝色的，因为find方法把jQuery集合改变了，后面的就找不到了
+    console.log($("ul").end());//jQuery.fn.init [document]
+
+
+    /* ㉚ addBack()
+        把之前被忽略的元素也添加进来
+       */
+    /* ㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿ */
+    var ele1 = $(".li1").nextUntil(".li3");//不包括li1，也不包括li3
+    ele1.css("color", "yellow");//这样只用li2变成黄色
+    var ele2 = ele1.end().addBack();//包括被操作的li1
+    ele2.css("color", "yellow");// 这样li1，与li2 变成黄色
 
 
 
