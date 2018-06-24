@@ -1,0 +1,56 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.box11 {
+    width: 500px;
+    height: 100px;
+}
+
+.b10 {
+    border: 10px solid #100;
+}
+
+.m10 {
+    margin: 10px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.hide {
+    display: none;
+    /* display的值是none ，取消文档的文档流，不会再占据空间*/
+    /* visible:hidden; 这个只是隐藏文档内容，不会取消文档流占据的box空间*/
+}
+
+.bg-red {
+    background: red;
+}
+
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: rgb(194, 165, 165);
+    margin: 20px;
+    overflow: hidden;
+}
+
+.item {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    background: blueviolet;
+    margin: 20px;
+}
+
+#scrollset {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    overflow: auto;
+    /* 设置成auto才会有滚动条 */
+}

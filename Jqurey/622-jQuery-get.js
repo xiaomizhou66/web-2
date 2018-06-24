@@ -174,6 +174,10 @@ $(function () {
 
 
     /*  下面这个是不是不可以？？，到底这个classname方法获取元素是怎么用的，*/
+    /* 题外知识！ 
+      js获取元素的方法中，只有id的是单个DOM元素，可以直接用，
+      tagname、classname，的都是数组，都要借助索引才能得到单个DOM元素来操作的！！！！
+  */
     var jqureyObject1 = $(".div");  //用jqurey来获取html元素，            -jqurey对象            
     var domObject1 = document.getElementsByClassName("div");//document获取html元素-DOM对象
     console.log(jqureyObject1);//jQuery.fn.init [prevObject: jQuery.fn.init(1)]       -jqurey对象  
