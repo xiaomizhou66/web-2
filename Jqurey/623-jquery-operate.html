@@ -29,7 +29,7 @@
         <li>item7</li>
     </ul>
 
-    <br/>
+    <hr/>
     <div class="box">box</div>
     <ul>
         <li class="item">item1</li>
@@ -71,6 +71,42 @@
     </ol>
     <p id="nihao-p">nihao</p>
     <div id="nihao-div">nihao</div>
+
+
+    <hr style="background-color: rgb(224, 46, 90);height: 1px;" />
+    <!--  插播学习，要设置水平线的颜色，要用背景色来设置，并且给水平线一个高，color是设置文本的颜色不顶用 -->
+    <form action="" style="width: 500px;height: 300px;">
+        <p> 单行文本框
+            <input type="text" name="text" />
+        </p>
+        <p>单选框
+            <input type="radio" name="radio" value="1" /> radio1
+            <input type="radio" name="radio" value="2" /> radio2
+        </p>
+        <hr style="background-color: rgb(224, 46, 90);height: 1px;" />
+        <p>多选框
+            <input type="checkbox" name="checkbox" value="1"> checkbox1
+            <input type="checkbox" name="checkbox" value="2"> checkbox2
+            <input type="checkbox" name="checkbox" value="3"> checkbox3
+        </p>
+        <hr style="background-color: rgb(224, 46, 90);height: 1px;" />
+        <p> 下拉选择框，单选
+            <select name="select" id="select">
+                <option value="1">11</option>
+                <option value="2">22</option>
+                <option value="3">33</option>
+            </select>
+        </p>
+        <hr style="background-color: rgb(224, 46, 90);height: 1px;" />
+        <p> 下拉选择框，多选，请按住键盘ctrl键进行单击多选
+            <select name="multiselect" id="multiselect" multiple>
+                <option value="1">11</option>
+                <option value="2">22</option>
+                <option value="3">33</option>
+            </select>
+        </p>
+        <!--  插播学习，用户在用多选，需要按住ctrl键  -->
+    </form>
 
 </body>
 

@@ -448,86 +448,173 @@ $(function () {
 
 */
 $(function () {
-            console.log($(".item").html()); //item1
-            console.log($(".item").text()); //item1item2item3item4item5item6item7
-            console.log($(".
-                item ").html(" < i > mi < /i>"));
-                //所有的文本变成 mi
-                console.log($(".item").text("<i>mi</i>"));
-                //所有的文本变成 <i>mi</i>，他会把标签页当做html文本
-                //console.log($(".item").html("<script>alert(123)</script>"));
-                //这样是很危险的，当用于在<script>alert(123)</script>写入一个木马程序，
-                //那么就会攻击我们的系统。
-                //所有用户输入的消息我们都要在前端后端都过滤掉，尤其是后端。
-            })
+    console.log($(".item").html()); //item1
+    console.log($(".item").text()); //item1item2item3item4item5item6item7
+    console.log($(".item ").html(" < i > mi < /i>"));
+    //所有的文本变成 mi
+    console.log($(".item").text("<i>mi</i>"));
+    //所有的文本变成 <i>mi</i>，他会把标签页当做html文本
+    //console.log($(".item").html("<script>alert(123)</script>"));
+    //这样是很危险的，当用于在<script>alert(123)</script>写入一个木马程序，
+    //那么就会攻击我们的系统。
+    //所有用户输入的消息我们都要在前端后端都过滤掉，尤其是后端。
+})
 
-            /*移动插入元素
-            应用：跟列表中的新闻添加一个  阅读更多的  超链接
-            ㉗ append("content1","content2","content3")   在元素内部尾部插入
-                对象1.append(对象2)                       对象2被移动到对象1后面
-            ㉘ prepend("content1","content2","content3") 在元素内部头部插入
-            ㉙ before("content1","content2","content3")   在元素外部 前面 插入,不在被插入的元素所在box内
-            ㉚ after("content1","content2","content3")    在元素外部 后面 插入,不在被插入的元素所在box内
+/*移动插入元素
+应用：跟列表中的新闻添加一个  阅读更多的  超链接
+㉗ append("content1","content2","content3")   在元素内部尾部插入
+    对象1.append(对象2)                       对象2被移动到对象1后面
+㉘ prepend("content1","content2","content3") 在元素内部头部插入
+㉙ before("content1","content2","content3")   在元素外部 前面 插入,不在被插入的元素所在box内
+㉚ after("content1","content2","content3")    在元素外部 后面 插入,不在被插入的元素所在box内
 
-            */
-            $(function () {
-                console.log($(".item1").append('<a href="../img /fe.png ">阅读更多</a>', "您好"));
-                //新闻内容阅读更多您好
-                console.log($(".item1").prepend(" ok ")); //ok 新闻内容阅读更多您好
-                console.log($(".item1").before(" 88 ")); //ok 新闻内容阅读更多您好
-                /* 
-                88
-                ok 新闻内容阅读更多您好 
-                */
-                $(".item1").append($("h6")); //h6被移到.item1后面，因为这个对象是多个元素集合，就被移动成很多份了
-                /*  
-                 88
-                 ok 新闻内容阅读更多您好
-                 标题
-                 88
-                 ok 新闻内容阅读更多您好
-                 标题
-                 88
-                 ok 新闻内容阅读更多您好
-                 标题 */
+*/
+$(function () {
+    console.log($(".item1").append('<a href="../img /fe.png ">阅读更多</a>', "您好"));
+    //新闻内容阅读更多您好
+    console.log($(".item1").prepend(" ok ")); //ok 新闻内容阅读更多您好
+    console.log($(".item1").before(" 88 ")); //ok 新闻内容阅读更多您好
+    /* 
+    88
+    ok 新闻内容阅读更多您好 
+    */
+    $(".item1").append($("h6")); //h6被移到.item1后面，因为这个对象是多个元素集合，就被移动成很多份了
+    /*  
+     88
+     ok 新闻内容阅读更多您好
+     标题
+     88
+     ok 新闻内容阅读更多您好
+     标题
+     88
+     ok 新闻内容阅读更多您好
+     标题 */
 
-            })
+})
 
-            /* 移动插入元素
-              给上面的比较就是说，把对象前候操作题反过来。
-               对象1.append(对象2)    在对象1后面插入对象2
-               对象1.appendTO(对象2)  把对象1超如到对象2中
-            ㉛ appendTo(target)   在元素内部尾部插入---把元素插入到元素的尾部 
-            ㉜ prependTo("content1","content2","content3") 在元素内部头部插入--把元素插入到元素的头部
-            ㉝ insertBefore("content1","content2","content3")   
-                在元素外部 前面 插入,不在被插入的元素所在box内---把元素插入到元素的前面
-            ㉞ insetAfter("content1","content2","content3")    
-                在元素外部 后面 插入,不在被插入的元素所在box内---把元素插入到元素的后面
+/* 移动插入元素
+  给上面的比较就是说，把对象前候操作题反过来。
+   对象1.append(对象2)    在对象1后面插入对象2
+   对象1.appendTO(对象2)  把对象1超如到对象2中
+㉛ appendTo(target)   在元素内部尾部插入---把元素插入到元素的尾部 
+㉜ prependTo("content1","content2","content3") 在元素内部头部插入--把元素插入到元素的头部
+㉝ insertBefore("content1","content2","content3")   
+    在元素外部 前面 插入,不在被插入的元素所在box内---把元素插入到元素的前面
+㉞ insetAfter("content1","content2","content3")    
+    在元素外部 后面 插入,不在被插入的元素所在box内---把元素插入到元素的后面
 
-                以上两类插入移动的办法的区别，
-                当需要在很多歌不同的对象后面插入同一个元素，就用appendTo类方法  方便
-                当需要把狠多不同的元素插图到一个元素里，就用append类的方法，    方便
-            */
-
-
-
-            /* 包裹元素
-            比如说我们在一个元素外面再用一个div元素包裹起来
-            ㉟ warp(),  如果括号内是html中的元素，那么它是实现了复制，与append的移动时不同的
-                warp是对对象的所有元素进行操作。
-            ㊱ warpAll(),
-             */
-            $(function () {
-                //$("#nihao-p").wrap('<div class="div2" style="background:red;width:100px;height:100px"></div>');
-                $("#nihao-p").wrap($("#nihao-box"));
-            })
+    以上两类插入移动的办法的区别，
+    当需要在很多歌不同的对象后面插入同一个元素，就用appendTo类方法  方便
+    当需要把狠多不同的元素插图到一个元素里，就用append类的方法，    方便
+*/
 
 
 
+/* 包裹元素
+比如说我们在一个元素外面再用一个div元素包裹起来
+㉟ warp(""),  如果括号内是html中的元素对象，那么它是实现了复制，与append的移动时不同的    
+warp()是对对象的所有元素进行操作。每个对象都会被()货号里面的东西分别包裹。多个
+效果<div><a></a></div>  <div><a></a></div>  <div><a></a></div>  
+㊱ warpAll(""),
+warp()是对对象的所有元素进行操作。每个对象都会被()货号里面的东西包裹在一起。一个
+效果
+<div>  <a></a> <a></a> <a></a>  </div> 
+㊲warpInner(""),把对象页面的文本包裹起来，
+    原文：<p>内容</P>   效果  <p><div>内容</div></P>
+㊳ unwarp(),取消包裹，用于移除元素的父元素
+ */
+$(function () {
+    //$("#nihao-p").wrap('<div class="div2" style="background:red;width:100px;height:100px"></div>');
+    $("#nihao-p").wrap($("#nihao-box"));
+    $(".item1").wrap($("<div></div>"));
+    $(".item1").wrapAll($("<div></div>"));
+    $("#nihao-p").wrapInner($('<div class="box11"></div>'));
+    // <p id="nihao-p"><div class="box11">nihao</div></p>
+})
+
+/*  删除元素
+㊴ remove()  这个方法是删除页面中的html元素，但是它是不会删除这个匹配的jquery对象，
+    很简单，我们删除的是网页上的html又不是html文件里面的东西，它依然还是可以获取$()的啊。
+    还是可以再获取这个对象的。
+    元素被删除之后，原来在它上面添加的事件、附加的数据都会被取消。
+    再用appendTo方法把它加回来之后，
+    click这种事件就不会存在了，data()获取不到数据了
+㊵ detach(),分离，这个删除还可以保留元素的事件，以及数据，重新加回来之后，我们的事件依然可以触发
+㊶ empty(),删除元素中的内容，但是元素（标签）本身还是存在的。
+*/
+
+/* 复制与替换元素
+之前的append会移动元素，warp是包裹元素，可以复制，下面学习一个真正的 复制/克隆 clone()
+㊷clone()
+    1、对象1.clone().appendTo(对象2)，就是把对象1克隆之后加到对象2上面去，不是移动了
+    2、clone(布尔值1，布尔值2)
+        布尔值1就是说被复制的元素的最外层元素被克隆与否，布尔值2指的是内层所有的元素被克隆与否
+        <div ><p>nihao</p></div>
+        clone()==clone(true,true)
+        clone(true,false) 只克隆div，不克隆p  
+㊸ (target对象1)replaceWith(content对象2)，   把对象1替换成对象2
+㊹ (content对象2)replaceAll(target对象1)，    把对象2 替换到对象1
+*/
+
+/* appendTO， prependTO， insertBefore， insertAfter，replaceAll 
+执行的都是破坏性的方法，
+都要使用之前的end()方法，才会返回原来的元素对象*/
 
 
-            /* 
-            ㊲
-            ㊳
-            ㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿ 
-            */
+/*处理表单元素值
+对于多选框，单选框，下拉选择框以及，这些操作使用这个办法是有不同的
+㊺ val()  获取值   
+    文本框     $('[name="text"]').val()                       数值
+    单选框     $('[name="radio"]:checked').val()
+    多选框     val只能获取元素中的1个值，选择两个框以上的话就获取不到正确的值了，这里需要map遍历
+              $('[name="checkbox"]:checked').map(function () {
+                    return $(this).val();                    数值
+              }).toArray()                                   变成数组                                 
+    下拉框单选 $('[name="select"] option:selected').val()
+    下拉框多选 $('[name="multiselect"]').val()                数组,一个数组，算是一个值
+ */
+$(function () {
+    console.log($('[name="text"]').val());
+    //获取到文本框中用户输入的值，当然了，需要有后端才会看到值，或者在浏览器的console上面执行才看到值
+    //多行文本框也可以这样取值
+    console.log($('[name="radio"]:checked').val()); //单选框
+    console.log($('[name="checkbox"]:checked').map(function () {
+        return $(this).val();
+    }).toArray()); //多选框
+    console.log($('[name="select"] option:selected').val());
+    console.log($('[name="multiselect"]').val());
+})
+/* 插播学习， 要设置水平线的颜色， 要用背景色来设置， 并且给水平线一个高， color是设置文本的颜色不顶用
+ 插播学习，用户在用多选，需要按住ctrl键  */
+
+
+/*  设置值
+㊻ val("") 设置值   只对第一个元素设置值   ，让值变成数组放进去，
+  文本框：$('[name="text"]').val("")
+  单选框：$('[name="radio"]').val([""])
+  多选框：$('[name="checkbox"]').val(["","",...])
+  下拉框单选：$('[name="select"]').val([""]);
+  下拉框单选：$('[name="multiselect"]').val(["","",...]);
+*/
+
+
+
+
+/*  总结
+ 到这里，我们就学习了jquery的三个功能了，
+ 1、获取html元素， $("")
+    tag，id，class，三大基本获取，其他的就通过三大基本获取方法+jquery对象方法去获取简单，灵活。
+    还有form表单元素的获取[name=""] ??？
+    基本就知道4中类获取就ok，其他的通过方法去获取
+ 2、对html元素进行操作，
+    插入元素，
+    修改元素
+    移动元素
+    复制元素clone
+    替换元素
+ 3、对css样式进行获取修改等等
+    修改 获取 元素的特性，属性
+    修改获取  元素的样式 语内容
+ 4、获取设置表单值，这里也是对html元素操作的一部分了     val()
+
+*/
