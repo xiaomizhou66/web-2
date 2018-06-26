@@ -411,10 +411,10 @@ $(function () {
 10、keyup
 14、mouseover
 15、mouseenter
+19、mouseleave
 16、mousedown
 17、mousemove
 18、mouseout
-19、mouseleave
 20、mouseup
 21、ready
 22、resize
@@ -430,3 +430,31 @@ $(function () {
         $("li").click(); //触发事件
     })
 })
+
+/* 15、mouseenter 19、mouseleave 
+ 的快捷方法
+ hover()
+ */
+
+
+/* 自定义事件 
+   语法 对象.on("自定义事件名称"，自定义事件函数).on("事件名称"，事件函数function(){
+       $(this).trigger("自定义事件名称");  触发事件
+   })
+*/
+$(function () {
+    $("li").on("xiaomi", function (event) { //添加自定义事件
+        console.log("已读 %o", $(this));
+    }).on("click", function () {
+        $(this).trigger("xiaimi"); //触发自定义事件
+    })
+    $("input").on("click", function () {
+        $("li").trigger("xiaimi"); //触发自定义事件
+    })
+})
+
+
+/* 事件命名空间 ？？？？？？
+用来组织和区分代码的，
+    
+*/
