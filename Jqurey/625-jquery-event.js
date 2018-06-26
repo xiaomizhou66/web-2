@@ -246,7 +246,7 @@ $(function () {
 
 /* 统一使用方法
 stopPropagation() 阻止冒泡
-preventDefault()  阻止默认行为？？？
+preventDefault()  阻止默认行为
 return false      阻止冒泡与默认行为
 */
 $(function () {
