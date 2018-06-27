@@ -1,0 +1,53 @@
+/* 初始化边距 */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* 给容器定义css */
+
+body {
+    position: relative;
+    /* 父元素相对定位，让子元素决定定位 */
+    width: auto;
+    height: auto;
+    /* 让它可以根据窗口变化显示的div的个数来决定自己id宽高 */
+    margin: 0 auto;
+    /* 左右自动可以让居中显示 */
+}
+
+/* 给容器下的div定义大小，位置 */
+
+body>div {
+    width: 280px;
+    height: auto;
+    box-sizing: border-box;
+    /* 使用上面这是的with值指的是最外层的值，就是包含了，margin */
+    box-sizing: content-box;
+    /* 默认值，不包含内湾边距 */
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    float: left;
+}
+
+/* 图片溢出了，给图片定宽度让拖搜索，不明白 */
+
+body div img {
+    width: 100%;
+}
+
+/* 给链接定义样式 */
+
+div a {
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+a:hover {
+    color: blueviolet;
+}

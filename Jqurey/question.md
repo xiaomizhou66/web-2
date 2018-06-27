@@ -16,9 +16,9 @@
         <ol>
             <li>bootstrap</li>
             <li>easyui</li>
-            <li>react</li>
-            <li>angular</li>
-            <li>vue
+            <li>react（主流）</li>
+            <li>angular（这个已经淘汰）</li>
+            <li>vue（主流）
                 <p>   vue.js   vue   vuex  axios vue-resource等</p>
             </li>
             <li>AngularJs/li>
