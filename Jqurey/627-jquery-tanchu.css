@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* 遮罩层设计，固定于屏幕，层级设计为高  */
+
+.layer-mask {
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0.5;
+    display: none;
+}
+
+.layer-pop {
+    width: 400px;
+    height: 300px;
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    /* 响应式设计 */
+    /* 四边设计为0，外边距自动，可以始终保持弹出框在窗口中间，不管窗口如何变化*/
+    background-color: white;
+    display: none;
+}
+
+.pop-close {
+    float: right;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    color: gray;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 12px;
+    background-color: white;
+    margin-right: -12px;
+    margin-top: -12px;
+    cursor: pointer;
+}
